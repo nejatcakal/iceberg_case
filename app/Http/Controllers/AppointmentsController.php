@@ -81,7 +81,7 @@ class AppointmentsController extends Controller
             );
         }
       
-        $users = User::whereNotIn("id",function($query) use ($request){
+        $users = User::whereIn("id",function($query) use ($request){
             $query->select('who_will_meet')
                 ->from('appointments')
                 ->where(function($query) use ($request){
