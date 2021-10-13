@@ -118,7 +118,7 @@ class AppointmentsController extends Controller
         );
 
         if($validator->fails()){
-            return response->json(
+            return response()->json(
                 [
                     'status' => false,
                     'errors' => $validator->erros()
