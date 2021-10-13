@@ -81,14 +81,14 @@ class AppointmentsController extends Controller
             );
         }
       
-        $users = User::whereIn("id",function($query) use ($request){
+        $users = User::whereNotIn("id",function($query) use ($request){
             $query->select('who_will_meet')
                 ->from('appointments')
                 ->where(function($query) use ($request){
                     $query->where('appointment_date', '=', $request->appointment_date)
-                        ->whereNotBetween('leave_office', [$request->leave_office, $request->return_to_office]);  
-                })
-                ->orWhere('appointment_date', '!=', $request->appointment_date);  
+                        ->whereBetween('leave_office', [$request->leave_office, $request->return_to_office]);  
+                });
+             
         })
         
         ->get();
