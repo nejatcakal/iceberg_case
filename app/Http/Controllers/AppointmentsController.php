@@ -40,7 +40,7 @@ class AppointmentsController extends Controller
             return response()->json(
                 [
                     'status' => false,
-                    'errors' => $validator->erros()
+                    'errors' => $validator->errors()
                 ],
                 400
             );
@@ -75,7 +75,7 @@ class AppointmentsController extends Controller
             return response()->json(
                 [
                     'status' => false,
-                    'errors' => $validator->erros()
+                    'errors' => $validator->errors()
                 ],
                 400
             );
@@ -121,7 +121,7 @@ class AppointmentsController extends Controller
             return response()->json(
                 [
                     'status' => false,
-                    'errors' => $validator->erros()
+                    'errors' => $validator->errors()
                 ],
                 400
             );
